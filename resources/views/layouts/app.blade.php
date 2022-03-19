@@ -27,6 +27,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ Route('create') }}">Create Todos <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ Route('logout') }}">Logout <span class="sr-only">(current)</span></a>
+                    </li>
         </nav>
         <div class="container">
             @if (session()->has('success'))
