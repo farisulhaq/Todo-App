@@ -18,7 +18,7 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            @auth  
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -27,9 +27,16 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ Route('create') }}">Create Todos <span class="sr-only">(current)</span></a>
                     </li>
+                      
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ Route('logout') }}">Logout <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ Route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit()">Logout <span class="sr-only">(current)</span></a>
                     </li>
+                    <form action="{{ Route('logout') }}" method="POST" id="logout-form">
+                        @csrf
+                    </form>
+                </ul>
+            </div>
+            @endauth
         </nav>
         <div class="container">
             @if (session()->has('success'))
