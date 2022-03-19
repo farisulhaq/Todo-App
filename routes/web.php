@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'TodoController@index')->name('home');
+Route::get('/', function(){
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/todos', 'TodoController@index')->name('index');
 
 Route::get('/todos/create', 'TodoController@create')->name('create');
 
@@ -28,3 +35,5 @@ Route::put('/todos/update/{id}', 'TodoController@update')->name('update');
 Route::get('/todos/delete/{id}', 'TodoController@destroy')->name('delete');
 
 Route::get('/todos/complete/{id}', 'TodoController@complete')->name('complete');
+
+Route::get('/home', 'HomeController@index')->name('home');
