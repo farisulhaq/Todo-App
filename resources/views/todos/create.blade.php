@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('title')
 Create Todos
 @endsection
@@ -31,4 +31,28 @@ Create Todos
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md">
+            {{-- <form action="{{ Route('store') }}" method="POST">
+                @csrf --}}
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" value="{{ old('name') }}">
+                    @error('name')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Description" name="description" id="description" value="{{ old('description') }}">
+                    @error('description')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" onclick="store(event)"">Create</button>
+                </div>
+            {{-- </form> --}}
+        </div>
+    </div>
+</div>

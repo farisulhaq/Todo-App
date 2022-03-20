@@ -1,15 +1,15 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('title')
 Single Todo {{$todo->name}}
 @endsection
 
-@section('content')
+@section('content') --}}
 <div class="container">
-    <h1 class="text-center my-5">{{$todo->name}}</h1>
+    <h5 class="text-center">{{$todo->name}}</h5>
 
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md">
             <div class="card card-default">
                 <div class="card-header">
                     Details
@@ -18,9 +18,9 @@ Single Todo {{$todo->name}}
                     {{$todo->description}}
                 </div>
             </div>
-            <a href="{{ route('edit', $todo->id) }}" class="button btn btn-info my-2">Edit</a>
-            <a href="{{ route('delete', $todo->id) }}" class="button btn btn-danger my-2">Delete</a>
+            <a class="button btn btn-info my-2" onclick="edit({{ $todo->id }})">Edit</a>
+            <a class="button btn btn-danger my-2" onclick="destroy({{ $todo->id }})">Delete</a>
         </div>
     </div>
 </div>
-@endsection
+{{-- @endsection --}}

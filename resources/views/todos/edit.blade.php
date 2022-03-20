@@ -1,29 +1,23 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('title')
 Create Todos
 @endsection
-@section('content')
-<h1 class="text-center my-5">Edit Todo</h1>
+@section('content') --}}
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md">
         <div class="card card-default">
-            <div class="card-header">Edit Todo</div>
             <div class="card-body">
-                <form action={{ route('update', $todo->id) }}" method="POST">
-                    @csrf
-                    @method('put')
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name" name="name" id="name" value="{{ $todo->name }}">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Description" name="description" id="description" value="{{ $todo->description }}">
-                    </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-success">Update Todo</button>
-                    </div>
-                </form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" value="{{ $todo->name }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Description" name="description" id="description" value="{{ $todo->description }}">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success" onclick="update(event, {{ $todo->id }})">Update Todo</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+{{-- @endsection --}}

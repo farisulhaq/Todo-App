@@ -30,7 +30,7 @@ Route::get('/todos/show/{id}', 'TodoController@show')->name('show');
 
 Route::get('/todos/edit/{id}', 'TodoController@edit')->name('edit');
 
-Route::put('/todos/update/{id}', 'TodoController@update')->name('update');
+Route::post('/todos/update/{id}', 'TodoController@update')->name('update');
 
 Route::get('/todos/delete/{id}', 'TodoController@destroy')->name('delete');
 

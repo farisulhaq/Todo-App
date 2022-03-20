@@ -30,10 +30,11 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'name' => 'required',
-            'description' => 'required'
-        ]);
+        // dd($request->name);
+        // $validateData = $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        // ]);
         Todo::create([
             'user_id' => Auth::user()->id,
             'name' => $request['name'],
@@ -57,7 +58,7 @@ class TodoController extends Controller
         ]);
         $id->update($validasi);
         session()->flash('success', 'Todo Update Successfully');
-        return redirect()->route('index');
+        return response()->json($id);
     }
 
     public function destroy(Todo $id)
